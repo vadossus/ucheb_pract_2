@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <div class="auth-form">
+            <h2 class="gradient-text">Авторизация</h2>
+            <form id="login-form">
+                <div class="input-field">
+                    <label for="username" class="gradient-text">Имя пользователя</label>
+                    <input type="text" id="username" name="login" required>
+                </div>
+                <div class="input-field">
+                    <label for="password" class="gradient-text">Пароль</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="gradient-button">Войти</button>
+            </form>
+            <div class="additional-links">
+                <a href="#" id="create-account" class="gradient-text">Создать аккаунт</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('create-account').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'register.html';
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('autoregister.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = 'main.html';
+                } else {
+                    alert('Ошибка: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
+
+
+
+

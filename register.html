@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <div class="auth-form">
+            <h2 class="gradient-text">Регистрация</h2>
+            <form action="auths.php" method="POST">
+                <div class="input-field">
+                    <input type="text" name="surname" required>
+                    <label class="gradient-text">Фамилия</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="name" required>
+                    <label class="gradient-text">Имя</label>
+                </div>
+                <div class="input-field">
+                    <input type="date" name="birthdate" required>
+                    <label class="gradient-text">ДД.ММ.ГГГГ</label>
+                </div>
+                <div class="input-field">
+                    <input type="email" name="email" required>
+                    <label class="gradient-text">Почта</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="login" required>
+                    <label class="gradient-text">Логин</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="password" required>
+                    <label class="gradient-text">Пароль</label>
+                </div>
+                <button type="submit" class="gradient-button">Сохранить</button>
+            </form>
+            <div class="additional-links">
+                <a href="#" id="back_to_auto" class="gradient-text">Назад</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('back_to_auto').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'autoreg.html';
+        });
+    </script>
+</body>
+</html>
+
+
